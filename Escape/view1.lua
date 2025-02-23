@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------------------------
 --
--- view1.lua
+-- start.lua
 --
 -----------------------------------------------------------------------------------------
 
@@ -10,7 +10,19 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 	
+	--BackGround
+	local bg = {}
+	bg[1] = display.newImage("image/title_bg.png")
+	bg[1].x, bg[1].y = display.contentWidth/2, display.contentHeight/2
 	
+	bg[2] = display.newImage("image/logo.png")
+	bg[2].x, bg[2].y = display.contentWidth/2, display.contentHeight/2-60
+
+	bg[3] = display.newImage("image/start_btn.png")
+	bg[3].x, bg[3].y = display.contentWidth/2, display.contentHeight/2+160
+
+	bg[4] = display.newImage("image/end_btn.png")
+	bg[4].x, bg[4].y = display.contentWidth/2, display.contentHeight/2+240
 end
 
 function scene:show( event )
