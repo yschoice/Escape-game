@@ -19,4 +19,6 @@ end
 
 
 
+
+
 onFirstView()	-- invoke first tab button's onPress event manually
