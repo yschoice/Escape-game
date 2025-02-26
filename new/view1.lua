@@ -10,7 +10,38 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 	
+	--BackGround
+	local bg = {}
+	bg[1] = display.newImage("image/UI/main title/title_bg.png")
+	bg[1].x, bg[1].y = display.contentWidth/2, display.contentHeight/2
 	
+	bg[2] = display.newImage("image/UI/main title/logo.png")
+	bg[2].x, bg[2].y = display.contentWidth/2, display.contentHeight/2-60
+
+	bg[3] = display.newImage("image/UI/main title/start_btn.png")
+	bg[3].x, bg[3].y = display.contentWidth/2, display.contentHeight/2+160
+
+	bg[4] = display.newImage("image/UI/main title/end_btn.png")
+	bg[4].x, bg[4].y = display.contentWidth/2, display.contentHeight/2+240
+
+	-- Event Listener
+	local function onStartButtonTapped( event )
+		composer.gotoScene("game")		-- 시작하기 버튼 클릭 시 game 씬(임시)으로
+	end
+
+	local function onEndButtonTapped( event )
+		composer.gotoScene("quit")		-- 나가기 버튼 클릭 시 quit 씬(임시시)으로
+	end
+
+	bg[3]:addEventListener("tap", onStartButtonTapped)
+	bg[4]:addEventListener("tap", onEndButtonTapped)
+
+    -- sceneGroup에 모든 객체 추가
+	sceneGroup:insert(bg[1])
+	sceneGroup:insert(bg[2])
+	sceneGroup:insert(bg[3])
+	sceneGroup:insert(bg[4])
+
 end
 
 function scene:show( event )
